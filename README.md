@@ -1,50 +1,66 @@
-# 🤖 MCP-GROQ-SERVER
+# 🧠 Mentat — MCP Code Assistant
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat&logo=python&logoColor=white)
 ![MCP](https://img.shields.io/badge/MCP-SDK-6C3DD4?style=flat&logo=anthropic&logoColor=white)
 ![Groq](https://img.shields.io/badge/Groq-API-F55036?style=flat&logo=groq&logoColor=white)
 ![Model](https://img.shields.io/badge/Model-Llama%203.3%2070B-00A67E?style=flat&logo=meta&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-1.99%2B-007ACC?style=flat&logo=visualstudiocode&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-22C55E?style=flat)
 
-Servidor MCP (Model Context Protocol) con interfaz de línea de comandos (CLI) para chatear con modelos LLM a través de la API de Groq. Mantiene historial de conversación y permite interacción multi-turno directamente desde la terminal.
+Servidor **MCP (Model Context Protocol)** integrado con **GitHub Copilot** en VS Code. Actúa como asistente de desarrollo inteligente que amplía las capacidades nativas de Copilot usando la API de **Groq** con el modelo **Llama 3.3 70B**. 
+
+Permite revisar código, generar tests, documentar, ejecutar comandos y más en múltiples lenguajes de programación, directamente desde el chat de Copilot en VS Code.
 
 ---
 
 ## ✨ Características
 
-- Chat conversacional con historial completo desde la terminal
-- Tres tools MCP disponibles: chat simple, chat con historial y listado de modelos
-- Integración con la API de Groq (gratuita y de alta velocidad)
-- Modelo por defecto: `llama-3.3-70b-versatile`
-- Configuración de API Key mediante variables de entorno
-- Entorno virtual aislado con venv
+- ✅ Integración nativa con GitHub Copilot Chat en VS Code
+- ✅ Soporte multi-lenguaje (Python, JavaScript, TypeScript, Java, C#, Go, Rust, Ruby, PHP, Swift, Kotlin, C++, C y más)
+- ✅ Revisión automática de código con sugerencias de mejora
+- ✅ Generación de unit tests (pytest, Jest, JUnit, xUnit, RSpec, PHPUnit, etc.)
+- ✅ Generación de documentación con estilos nativos (Google Docstrings, JSDoc, TSDoc, Javadoc, etc.)
+- ✅ Lectura y exploración de archivos del proyecto
+- ✅ Ejecución de comandos desde el chat
+- ✅ Sugerencias inteligentes de commits con Conventional Commits
+- ✅ Chat conversacional con historial completo
+- ✅ Motor: **Llama 3.3 70B** via Groq (gratuito)
 
 ---
 
-## 🧠 Modelo de IA
+## 🛠️ Tools disponibles
 
-| Modelo | Proveedor | Tokens de contexto | Velocidad |
-|---|---|---|---|
-| `llama-3.3-70b-versatile` | Meta via Groq | 128,000 | ~900 tok/s |
-| `llama-3.1-8b-instant` | Meta via Groq | 128,000 | ~2,000 tok/s |
-| `mixtral-8x7b-32768` | Mistral via Groq | 32,768 | ~700 tok/s |
-| `gemma2-9b-it` | Google via Groq | 8,192 | ~800 tok/s |
+| Tool | Descripción |
+|---|---|
+| `chat` | Chat simple con un prompt |
+| `chat_with_history` | Chat multi-turno con historial |
+| `list_models` | Lista los modelos disponibles |
+| `leer_archivo` | Lee el contenido de un archivo |
+| `listar_archivos` | Muestra la estructura del proyecto |
+| `revisar_codigo` | Revisa un archivo y sugiere mejoras |
+| `generar_tests` | Genera unit tests con pytest |
+| `generar_docs` | Genera docstrings y documentación |
+| `ejecutar_comando` | Ejecuta comandos en la terminal |
+| `sugerir_commit` | Sugiere mensajes de commit |
 
 ---
 
-## 📦 Paquetes instalados
+## 📦 Dependencias principales
 
-| Paquete | Versión | Descripción |
-|---|---|---|
-| `mcp` | latest | SDK oficial de Model Context Protocol |
-| `groq` | latest | Cliente oficial de la API de Groq |
-| `python-dotenv` | latest | Carga variables de entorno desde `.env` |
+| Paquete | Descripción |
+|---|---|
+| `mcp` | SDK oficial de Model Context Protocol |
+| `groq` | Cliente oficial de la API de Groq |
+| `python-dotenv` | Carga variables de entorno desde `.env` |
+| `rich` | Renderizado de terminal con estilos avanzados |
 
 ---
 
 ## 📋 Requisitos
 
 - Python 3.10 o superior
+- VS Code 1.99 o superior
+- Extensión GitHub Copilot instalada en VS Code
 - Cuenta gratuita en [Groq Console](https://console.groq.com)
 - Git
 
@@ -52,14 +68,14 @@ Servidor MCP (Model Context Protocol) con interfaz de línea de comandos (CLI) p
 
 ## 🚀 Instalación
 
-### 1. Clona el repositorio
+### 1 — Clona el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/MCP-GROQ-SERVER.git
-cd MCP-GROQ-SERVER
+git clone https://github.com/tu-usuario/mentat.git
+cd mentat
 ```
 
-### 2. Crea y activa el entorno virtual
+### 2 — Crea y activa el entorno virtual
 
 ```bash
 # Crear el venv
@@ -72,80 +88,150 @@ source venv/bin/activate
 venv\Scripts\activate
 ```
 
-### 3. Instala las dependencias
+### 3 — Instala las dependencias
 
 ```bash
-pip install mcp groq python-dotenv
+pip install mcp groq python-dotenv rich
 ```
 
-### 4. Configura tu API Key
+### 4 — Configura tu API Key
 
 Crea un archivo `.env` en la raíz del proyecto:
 
 ```env
-GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxxxxxx
+GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxx
 ```
 
 > Obtén tu API Key gratis en [console.groq.com](https://console.groq.com) → API Keys.
 
 ---
 
-## ▶️ Uso
+## ⚙️ Configuración en VS Code
 
-Con el venv activado, ejecuta:
+### 1 — Verifica tu versión de VS Code
+
+```
+Help → About → debe ser 1.99 o superior
+```
+
+Si necesitas actualizar: [code.visualstudio.com](https://code.visualstudio.com)
+
+### 2 — Obtén la ruta del Python de tu venv
+
+Con el venv activado en la terminal:
 
 ```bash
-python cli.py
+# Windows
+where python
+
+# Mac / Linux
+which python
 ```
 
-El cliente levanta el servidor MCP automáticamente en segundo plano y abre la interfaz de chat:
+Copia esa ruta, la necesitarás en el siguiente paso.
+
+### 3 — Abre la configuración MCP de VS Code
 
 ```
-=== Cliente MCP ===
-Escribe 'salir' para terminar.
-
-Tú: ¿Qué es Docker?
-Asistente: Docker es una plataforma de contenedores que permite...
-
-Tú: ¿Y cómo se diferencia de una máquina virtual?
-Asistente: A diferencia de una VM, Docker no virtualiza el hardware...
-
-Tú: salir
+Ctrl + Shift + P → "MCP: Open User Configuration" → Enter
 ```
 
-Escribe `salir` para cerrar el chat. El servidor se cierra automáticamente.
+### 4 — Agrega la configuración del servidor
+
+```json
+{
+    "servers": {
+        "mentat": {
+            "type": "stdio",
+            "command": "C:\\TuUsuario\\TuUsuario\\ruta\\mentat\\venv\\Scripts\\python.exe",
+            "args": ["C:\\TuUsuario\\TuUsuario\\ruta\\mentat\\server.py"],
+            "env": {
+                "GROQ_API_KEY": "gsk_xxxxxxxxxxxxxxxx"
+            }
+        }
+    }
+}
+```
+
+> **Windows:** usa doble barra invertida `\\` en las rutas.
+> **Mac / Linux:** usa `/` normal, por ejemplo `/home/usuario/mentat/venv/bin/python`.
+
+Reemplaza:
+- `TuUsuario` por tu usuario del sistema
+- `ruta` por la carpeta donde clonaste el proyecto
+- `gsk_xxxxxxxxxxxxxxxx` por tu API Key de Groq
+
+### 5 — Verifica que el servidor está corriendo
+
+```
+Ctrl + Shift + P → "MCP: List Servers"
+```
+
+Debe aparecer `mentat` con estado **En ejecución** y mostrar las 10 tools descubiertas.
+
+---
+
+## 💬 Uso en Copilot Chat
+
+### Abre Copilot Chat en modo Agent
+
+```
+Ctrl + Alt + I
+```
+
+Cambia el modo a **Agent** en el selector superior del chat.
+
+### Invoca a Mentat
+
+```
+#mentat revisa el archivo server.py
+```
+
+```
+#mentat genera tests para utils.py
+```
+
+```
+#mentat lista los archivos del proyecto
+```
+
+```
+#mentat sugiere un mensaje de commit
+```
+
+```
+#mentat explícame este error: [pega tu error aquí]
+```
+
+### En modo Agent también puedes escribir directamente
+
+```
+revisa este código y dime si hay mejoras
+```
+
+Copilot llamará a Mentat automáticamente cuando lo considere necesario.
+
+---
+
+## 🔄 Actualizar el servidor
+
+Cada vez que modifiques `server.py` reinicia el servidor:
+
+```
+Ctrl + Shift + P → "MCP: Restart Server" → mentat
+```
 
 ---
 
 ## 🗂️ Estructura del proyecto
 
 ```
-MCP-GROQ-SERVER/
-├── server.py       # Servidor MCP con las tools de Groq
-├── cli.py          # Cliente CLI interactivo
+mentat/
+├── server.py       # Servidor MCP con las tools
+├── cli.py          # Cliente CLI interactivo (opcional)
 ├── .env            # API Key (no se sube a git)
 ├── .gitignore
 └── README.md
 ```
 
 ---
-
-## 🛠️ Tools MCP disponibles
-
-| Tool | Descripción |
-|---|---|
-| `chat` | Chat simple con un prompt |
-| `chat_with_history` | Chat multi-turno con historial completo |
-| `list_models` | Lista los modelos disponibles |
-
----
-
-## 🔒 Seguridad
-
-El archivo `.env` está incluido en `.gitignore` y **nunca se sube al repositorio**. Nunca compartas tu API Key públicamente.
-
----
-
-## 📄 Licencia
-
-MIT — libre para usar, modificar y distribuir.
