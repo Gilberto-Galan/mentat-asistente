@@ -213,7 +213,62 @@ Copilot llamará a Mentat automáticamente cuando lo considere necesario.
 
 ---
 
-## 🔄 Actualizar el servidor
+## 🖥️ Uso por CLI (Alternativa)
+
+Si prefieres usar Mentat sin VS Code, existe un cliente CLI interactivo:
+
+### Ejecutar el CLI
+
+```bash
+python cli.py
+```
+
+Se abrirá una interfaz interactiva con banner y menús:
+
+```
+███╗   ███╗███████╗███╗   ██╗████████╗ █████╗ ████████╗
+████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔══██╗╚══██╔══╝
+██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████║   ██║   
+██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ██╔══██║   ██║   
+██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ██║  ██║   ██║   
+╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝   ╚═╝   
+
+MCP Code Assistant  │  Universal Multi-Language Engine
+```
+
+### Comandos disponibles
+
+```
+/ayuda              Muestra todos los comandos
+/capacidades        Qué puede hacer Mentat
+/historial          Muestra la conversación completa
+/modelo             Muestra el modelo en uso (Llama 3.3 70B)
+/limpiar            Borra el historial y empieza de nuevo
+/salir              Cierra Mentat
+```
+
+### Ejemplos de uso
+
+```
+> revisa este código: [pega tu código aquí]
+
+> genera tests para mi función calcular()
+
+> explícame este error: [error message]
+
+> ¿cuáles son las mejores prácticas en Python?
+```
+
+### Características del CLI
+
+- ✅ Renderizado de código con sintaxis coloreada
+- ✅ Historial conversacional persistente
+- ✅ Soporte para múltiples lenguajes
+- ✅ Interfaz amigable con paneles y tablas
+
+---
+
+###  🔄 Actualizar el servidor
 
 Cada vez que modifiques `server.py` reinicia el servidor:
 
@@ -223,15 +278,25 @@ Ctrl + Shift + P → "MCP: Restart Server" → mentat
 
 ---
 
-## 🗂️ Estructura del proyecto
+## 🤝 Apoyo
 
-```
-mentat/
-├── server.py       # Servidor MCP con las tools
-├── cli.py          # Cliente CLI interactivo (opcional)
-├── .env            # API Key (no se sube a git)
-├── .gitignore
-└── README.md
-```
+Si te gusta Mentat y te ha sido útil, **¡tu apoyo es bienvenido!**
+
+### ⭐ Dale una estrella
+
+Si el proyecto te es útil, **considéralo merecedor de una estrella** ⭐ en GitHub. Nos ayuda a crecer y a que otros desarrolladores descubran Mentat.
+
+[⭐ Dale una estrella al proyecto](https://github.com/Gilberto-Galan/mentat-asistente)
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT**. Ver [LICENSE](LICENSE) para más detalles.
 
 ---
+
+## 👨‍💻 Autor
+
+Creado con ❤️ por **Gilberto Galán**
+
+- GitHub: [@Gilberto-Galan](https://github.com/Gilberto-Galan)
+- Proyecto: [Mentat - MCP Code Assistant](https://github.com/Gilberto-Galan/mentat-asistente)
