@@ -286,14 +286,6 @@ Si te gusta Mentat y te ha sido útil, **¡tu apoyo es bienvenido!**
 
 Si el proyecto te es útil, **considéralo merecedor de una estrella** ⭐ en GitHub. Nos ayuda a crecer y a que otros desarrolladores descubran Mentat.
 
-[⭐ Dale una estrella al proyecto](https://github.com/Gilberto-Galan/mentat-asistente)
-
-## 📄 Licencia
-
-Este proyecto está bajo la licencia **MIT**. Ver [LICENSE](LICENSE) para más detalles.
-
----
-
 ## 👨‍💻 Autor
 
 Creado con ❤️ por **Gilberto Galán**
